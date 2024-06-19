@@ -1,26 +1,40 @@
-import { useState } from "react"
-import logo from "../assets/logo.png"
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <>
       <header className="header max-width py-5">
         <div className="flex items-center justify-between">
           <article className="flex items-center">
-            <img src={logo} alt="Shortify" />
+            <Link to="/">
+              <img src={logo} alt="Shortify" />
+            </Link>
 
             <nav className="hidden md:block md:ml-5">
               <ul className="flex items-start justify-start">
                 <li>
-                  <button className="text-slate-400">Home</button>
+                  <Link to="/" className={isActive("/") ? "text-cyan-500" : "text-slate-400"}>
+                    Home
+                  </Link>
                 </li>
                 <li className="my-5 md:my-0 md:mx-5">
-                  <button className="text-slate-400">My URL's</button>
+                  <Link to="/myurls" className={isActive("/myurls") ? "text-cyan-500" : "text-slate-400"}>
+                    My URL's
+                  </Link>
                 </li>
                 <li>
-                  <button className="text-slate-400">About Us</button>
+                  <Link to="/about" className={isActive("/about") ? "text-cyan-500" : "text-slate-400"}>
+                    About Us
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -31,22 +45,28 @@ export default function Header() {
               <nav className="md:hidden">
                 <ul className="flex flex-col items-center justify-center">
                   <li>
-                    <button>Home</button>
+                    <Link to="/" className={isActive("/") ? "text-cyan-500" : "text-slate-400"}>
+                      Home
+                    </Link>
                   </li>
                   <li className="my-5">
-                    <button>My URL's</button>
+                    <Link to="/myurls" className={isActive("/myurls") ? "text-cyan-500" : "text-slate-400"}>
+                      My URL's
+                    </Link>
                   </li>
                   <li>
-                    <button>About Us</button>
+                    <Link to="/about" className={isActive("/about") ? "text-cyan-500" : "text-slate-400"}>
+                      About Us
+                    </Link>
                   </li>
                 </ul>
               </nav>
               <ul className="flex flex-col items-center justify-center">
                 <li className="my-5">
-                  <button className="text-slate-400">Login</button>
+                  <Link to="/sign-in" className="text-slate-400">Login</Link>
                 </li>
                 <li>
-                  <button className="btn-cta rounded-full">Sign Up</button>
+                  <Link to="/sign-up" className="btn-cta rounded-full">Sign Up</Link>
                 </li>
               </ul>
             </div>
@@ -55,10 +75,10 @@ export default function Header() {
           <div className="hidden md:block">
             <ul className="flex items-center ml-5">
               <li className="my-5 md:my-0 md:mr-5">
-                <button className="text-slate-400">Login</button>
+                <Link to="/sign-in" className="text-slate-400">Login</Link>
               </li>
               <li>
-                <button className="btn-cta rounded-full">Sign Up</button>
+                <Link to="/sign-up" className="btn-cta rounded-full">Sign Up</Link>
               </li>
             </ul>
           </div>
@@ -72,5 +92,5 @@ export default function Header() {
         </div>
       </header>
     </>
-  )
+  );
 }
