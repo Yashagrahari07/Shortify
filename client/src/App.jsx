@@ -7,6 +7,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile.jsx";
 import Redirect from "./pages/Redirect.jsx";
+import UrlDetails from "./pages/UrlDetails.jsx";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/:shortId/*" element={<Redirect />} />
+        <Route path="/details/:shortId/*" element={<UrlDetails />} />
 
         <Route
           path="/404"
