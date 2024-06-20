@@ -20,9 +20,7 @@ export const shortenUrl = async (req, res, next) => {
 
     await newUrl.save();
 
-    const qrCodeUrl = await QRCode.toDataURL(`http://localhost:3000/api/url/${shortCode}`);
-
-    res.status(201).json({ shortCode, qrCodeUrl });
+    res.status(201).json({ shortCode });
   } catch (err) {
     next(err);
   }
@@ -74,8 +72,18 @@ export const deleteUrl = async (req, res, next) => {
   }
 };
 
+export const getUserUrls = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+    const urls = await Url.find({ user: userId });
 
-export const getAnalytics = async (req, res, next) => {
+    res.status(200).json(urls);
+  } catch (err) {
+    next(err);
+  }
+};
+
+export const getUrlDetails = async (req, res, next) => {
   try {
     const { shortId } = req.params;
     const userId = req.user.id;
@@ -90,21 +98,19 @@ export const getAnalytics = async (req, res, next) => {
       return next(errorHandler(403, 'Forbidden'));
     }
 
-    res.json({
-      totalClicks: url.visitHistory.length,
-      analytics: url.visitHistory,
+    if (url.expiresAt < Date.now()) {
+      return next(errorHandler(404, 'URL has expired'));
+    }
+
+    const qrCodeUrl = await QRCode.toDataURL(`http://localhost:5173/${shortId}`);
+
+    res.status(200).json({
+      originalUrl: url.originalUrl,
+      shortId: url.shortId,
+      visitHistory: url.visitHistory,
+      expiresAt: url.expiresAt,
+      qrCodeUrl,
     });
-  } catch (err) {
-    next(err);
-  }
-};
-
-export const getUserUrls = async (req, res, next) => {
-  try {
-    const userId = req.user.id;
-    const urls = await Url.find({ user: userId });
-
-    res.status(200).json(urls);
   } catch (err) {
     next(err);
   }
