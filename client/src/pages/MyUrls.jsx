@@ -37,7 +37,7 @@ export default function MyUrls() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {urls.map((url) => (
           <div key={url.shortId} className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold mb-2 truncate">{url.originalUrl}</h2>
+            <Link to={`/details/${url.shortId}`} className="text-xl font-semibold mb-2 break-all">{url.originalUrl}</Link>
             <p className="text-gray-600 mb-4 break-all">
               Short URL: 
               <Link to={`/${url.shortId}`} className="text-cyan-500 break-all">{`${window.location.origin}/api/url/${url.shortId}`}</Link>
