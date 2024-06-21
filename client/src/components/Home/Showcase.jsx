@@ -11,7 +11,7 @@ export default function Showcase({ scrollToShortener }) {
             More than just shorter links
           </h1>
           <p className="lg:text-lg text-slate-400 mb-10">
-            Build your brand’s recognition and get detailed insights on how
+            Build your brand’s recognition and gain valuable insights on how
             your links are performing.
           </p>
           <button className="btn-cta rounded-full" onClick={ scrollToShortener }>

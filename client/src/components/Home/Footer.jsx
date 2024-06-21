@@ -1,15 +1,18 @@
-import GitHub from "../../assets/icon-github.svg"
-import linkedin from "../../assets/icon-linkedin.svg"
-import instagram from "../../assets/icon-instagram.svg"
-import logo from "../../assets/footer-logo.png"
+import GitHub from "../../assets/icon-github.svg";
+import linkedin from "../../assets/icon-linkedin.svg";
+import instagram from "../../assets/icon-instagram.svg";
+import logo from "../../assets/footer-logo.png";
+import { Link } from "react-router-dom";
 
-export default function Footer() {
+export default function Footer({ scrollToShortener }) {
   return (
     <>
       <footer className="bg-slate-900 py-10 lg:py-20">
         <div className="max-width grid grid-cols-1 gap-5 md:grid-cols-3 lg:grid-cols-5">
           <article>
-            <img src={logo} alt="" />
+            <Link to="/">
+              <img src={logo} alt="Shortify" />
+            </Link>
           </article>
 
           <article>
@@ -18,19 +21,21 @@ export default function Footer() {
             </h3>
             <ul>
               <li>
-                <button className="text-slate-200 text-sm mt-1">
+                <button className="text-slate-200 text-sm mt-1" onClick={ scrollToShortener }>
                   Link Shortening
                 </button>
               </li>
               <li>
-                <button className="text-slate-200 text-sm mt-1">
+                <button className="text-slate-200 text-sm mt-1" onClick={ scrollToShortener }>
                   Branded Links
                 </button>
               </li>
               <li>
-                <button className="text-slate-200 text-sm mt-1">
-                  Analytics
-                </button>
+                <Link to="/myurls">
+                  <button className="text-slate-200 text-sm mt-1">
+                    Analytics
+                  </button>
+                </Link>
               </li>
             </ul>
           </article>
@@ -68,13 +73,13 @@ export default function Footer() {
           <article>
             <ul className="flex items-center">
               <li>
-                <img src={GitHub} alt="" />
+                <a href="https://github.com/Yashagrahari07"><img src={GitHub} alt="GitHub" /></a>
               </li>
               <li className="ml-4">
-                <img src={linkedin} alt="" />
+                <a href="https://www.linkedin.com/in/yashagrahari/"><img src={linkedin} alt="LinkedIN" /></a>
               </li>
               <li className="ml-4">
-                <img src={instagram} alt="" />
+                <img src={instagram} alt="Instagram" />
               </li>
             </ul>
           </article>

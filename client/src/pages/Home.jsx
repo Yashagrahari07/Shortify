@@ -22,7 +22,7 @@ export default function Home() {
       </div>
       <Advanced/>
       <Boost scrollToShortener={scrollToShortener} />
-      <Footer/>
+      <Footer scrollToShortener={scrollToShortener}/>
     </>
   )
 }
