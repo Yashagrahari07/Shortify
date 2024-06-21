@@ -8,6 +8,7 @@ import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile.jsx";
 import Redirect from "./pages/Redirect.jsx";
 import UrlDetails from "./pages/UrlDetails.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
 
 export default function App() {
   return (
@@ -15,14 +16,17 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/myurls" element={<MyUrls />} />
         <Route path="/about" element={<About />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/:shortId/*" element={<Redirect />} />
-        <Route path="/details/:shortId/*" element={<UrlDetails />} />
-
+        
+        <Route element={<PrivateRoute/>}>
+          <Route path="/myurls" element={<MyUrls />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/details/:shortId/*" element={<UrlDetails />} />
+        </Route>
+        
         <Route
           path="/404"
           element={

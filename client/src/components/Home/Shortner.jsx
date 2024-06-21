@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import bgMobile from "../../assets/bg-shorten-mobile.svg";
 import bgDesktop from "../../assets/bg-shorten-desktop.svg";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Shortener() {
   const [text, setText] = useState("");
   const [buttonText, setButtonText] = useState("Copy");
   const [shortenedLink, setShortenedLink] = useState(null);
+  const { currentUser } = useSelector((state) => state.user);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,12 +66,21 @@ export default function Shortener() {
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
-            <button
-              type="submit"
-              className="btn-cta rounded-lg w-full md:w-40 md:ml-5"
-            >
-              Shorten It!
-            </button>
+            {currentUser? 
+              <button
+                type="submit"
+                className="btn-cta rounded-lg w-full md:w-40 md:ml-5">
+                Shorten It!
+              </button>
+              :
+              <Link to="/sign-in">
+                <button
+                  type="button"
+                  className="btn-cta rounded-lg w-full md:w-40 md:ml-5">
+                  Shorten It!
+                </button>
+              </Link>
+            }
           </div>
         </form>
 
