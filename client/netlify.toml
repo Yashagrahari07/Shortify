@@ -3,10 +3,19 @@
   publish = "dist"
 
 [[redirects]]
-  from = "/api/*"
-  to = "https://shortify-5rrs.onrender.com/:splat"
+  from = "/api/auth/*"
+  to = "https://shortify-5rrs.onrender.com/api/auth/:splat"
   status = 200
-  force = true
+
+[[redirects]]
+  from = "/api/user/*"
+  to = "https://shortify-5rrs.onrender.com/api/user/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/api/url/*"
+  to = "https://shortify-5rrs.onrender.com/api/url/:splat"
+  status = 200
 
 [[redirects]]
   from = "/*"
