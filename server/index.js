@@ -9,7 +9,7 @@ import cors from 'cors';
 
 const app = express();
 app.use(cors({
-    origin: 'https://shortify-jors.onrender.com/',
+    origin: 'https://shortify4.netlify.app/',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,

@@ -102,7 +102,7 @@ export const getUrlDetails = async (req, res, next) => {
       return next(errorHandler(404, 'URL has expired'));
     }
 
-    const qrCodeUrl = await QRCode.toDataURL(`https://shortify-jors.onrender.com/${shortId}`);
+    const qrCodeUrl = await QRCode.toDataURL(`https://shortify4.netlify.app/${shortId}`);
 
     res.status(200).json({
       originalUrl: url.originalUrl,
