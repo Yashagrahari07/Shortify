@@ -43,8 +43,8 @@ export default function Advanced() {
                 Detailed Records
               </h3>
               <p className="text-slate-400 text-sm">
-                Gain insights into who is clicking your links. Knowing when and
-                where people engage with your content helps inform better
+                Gain insights into who is clicking your links. Knowing when
+                people engage with your content helps inform better
                 decisions.
               </p>
             </article>

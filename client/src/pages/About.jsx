@@ -3,18 +3,28 @@ import illustration from '../assets/illustration-about.svg';
 
 export default function About() {
   return (
-    <section id="about" className="py-10">
+    <section id="about" className="pt-10">
       <div className="max-width grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-10 md:place-items-center">
         <article className="text-center md:text-left">
-          <h1 className="text-5xl lg:text-6xl mb-5 font-bold text-slate-800">
+          <h1 className="text-3xl lg:text-5xl mb-5 font-bold text-slate-800">
             What is Shortify?
           </h1>
           <p className="lg:text-lg text-slate-400 mb-10">
-            Shortify is a modern URL shortening service that streamlines link sharing by transforming long, complex URLs into concise and memorable ones. It's designed for ease of use across various digital platforms, offering enhanced efficiency and aesthetics for shared links.
+            Shortify is a sleek URL shortening service that turns long URLs into short, memorable links, perfect for sharing across digital platforms.
           </p>
-          <p className="lg:text-lg text-slate-400">
-            Alongside its shortening capabilities, Shortify provides robust analytics tools to track link performance metrics such as click-through rates and geographic data. This empowers users to gain valuable insights into audience engagement and optimize their digital strategies effectively.
-          </p>
+          <h2 className="text-4xl mb-5 font-bold text-slate-800">
+            Features
+          </h2>
+          <ul className="feature-list lg:text-lg text-slate-400 mb-10">
+            <div className="pl-10">
+              <li>Instantly shorten and copy URLs.</li>
+              <li>View all shortened URLs in one place with detailed analytics.</li>
+              <li>Track metrics like original URL, shortened URL, expiration date, and total clicks.</li>
+              <li>Redirect to the original URL when the shortened link is clicked.</li>
+              <li>Access detailed analytics by clicking the original URL.</li>
+              <li>See visit history and generate QR codes for easy sharing.</li>
+            </div>
+          </ul>
         </article>
 
         <article>
