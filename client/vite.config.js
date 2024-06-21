@@ -12,5 +12,15 @@ export default defineConfig({
       },
     },
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: '_redirects',
+          dest: '.',
+        },
+      ],
+    }),
+  ],
 })
