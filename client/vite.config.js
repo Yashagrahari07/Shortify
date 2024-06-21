@@ -7,6 +7,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         target: 'https://shortify-5rrs.onrender.com/',
+        changeOrigin: true,
         secure: false,
       },
     },

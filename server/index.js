@@ -5,8 +5,15 @@ import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.route.js';
 import userRouter from './routes/user.route.js';
 import urlRouter from './routes/url.route.js';
+import cors from 'cors';
 
 const app = express();
+app.use(cors({
+    origin: 'http://localhost:5173',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+}));
 
 dotenv.config();
 
