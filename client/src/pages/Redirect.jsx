@@ -14,7 +14,8 @@ export default function Redirect() {
         }
 
         const data = await response.json();
-        window.location.href = data.originalUrl;
+        window.open(data.originalUrl, '_blank');
+        window.location.href = "/";
       } catch (error) {
         console.error("Error:", error);
         window.location.href = "/404";
