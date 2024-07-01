@@ -40,8 +40,8 @@ Shortify is a powerful URL shortening service designed to streamline the process
 
 1. **Clone the repository**
     ```sh
-    git clone https://github.com/your-username/your-repo.git
-    cd your-repo/backend
+    git clone https://github.com/Yashagrahari07/Shortify.git
+    cd Shortify/backend
     ```
 
 2. **Install dependencies**
@@ -83,7 +83,7 @@ Shortify is a powerful URL shortening service designed to streamline the process
 
 ## 🚀 Usage
 
-- Open the frontend application in your browser (usually at `http://localhost:5173`).
+- Open the frontend application in your browser at `http://localhost:5173`.
 - Sign up for an account or sign in if you already have one.
 - Use the URL shortener form to create shortened URLs effortlessly.
 - Manage your URLs from the "My URLs" page with ease.
