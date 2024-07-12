@@ -10,6 +10,8 @@ import Profile from "./pages/Profile.jsx";
 import Redirect from "./pages/Redirect.jsx";
 import UrlDetails from "./pages/UrlDetails.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
+import { useDispatch } from 'react-redux';
+import { checkToken } from './app/user/useSlice'; 
 
 function getPageTitle(pathname) {
   switch (pathname) {
@@ -32,6 +34,11 @@ function getPageTitle(pathname) {
 
 function PageRoutes() {
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(checkToken());
+  }, [dispatch]);
 
   useEffect(() => {
     document.title = getPageTitle(location.pathname);

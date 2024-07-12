@@ -14,7 +14,6 @@ export default function UrlDetails() {
         const response = await fetch(`/api/url/details/${shortId}`, {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
         });
 

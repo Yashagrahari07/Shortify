@@ -74,6 +74,13 @@ const userSlice = createSlice({
     },
 });
 
+export const checkToken = () => (dispatch) => {
+    const token = document.cookie.split('; ').find(row => row.startsWith('access_token='));
+    if (!token) {
+      dispatch(userSlice.actions.deleteUserSuccess()); // Assuming deleteUserSuccess sets currentUser to null
+    }
+  };
+
 export const { 
     signInStart, 
     signInSuccess, 
